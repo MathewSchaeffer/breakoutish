@@ -1,0 +1,192 @@
+[gd_scene load_steps=6 format=3 uid="uid://bikkc1tmf4748"]
+
+[ext_resource type="Script" uid="uid://cax6b564xwvmd" path="res://template/settings_menu.gd" id="1_12le4"]
+[ext_resource type="FontFile" uid="uid://d1ptbhfwxht47" path="res://assets/fonts/LondrinaSolid-Regular.ttf" id="2_8g6mn"]
+
+[sub_resource type="Animation" id="Animation_13qui"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_8g6mn"]
+resource_name = "fade_in"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i3qex"]
+_data = {
+&"RESET": SubResource("Animation_13qui"),
+&"fade_in": SubResource("Animation_8g6mn")
+}
+
+[node name="SettingsMenu" type="CanvasLayer"]
+layer = 9
+scale = Vector2(0, 0)
+transform = Transform2D(0, 0, 0, 0, 0, 0)
+script = ExtResource("1_12le4")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -344.0
+offset_top = -176.0
+offset_right = 424.0
+offset_bottom = 248.0
+color = Color(0.0784314, 0.0784314, 0.0784314, 0.792157)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -392.0
+offset_top = -232.0
+offset_right = 392.0
+offset_bottom = 208.0
+color = Color(0.273873, 0.273873, 0.273873, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -384.0
+offset_top = -224.0
+offset_right = 384.0
+offset_bottom = 200.0
+color = Color(0.147672, 0.147672, 0.147672, 1)
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="SettingsTitle" type="Label" parent="Labels"]
+offset_left = -256.0
+offset_top = -104.0
+offset_right = -128.0
+offset_bottom = -40.0
+text = "Music"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MusicPercentage" type="Label" parent="Labels"]
+offset_left = 96.0
+offset_top = -104.0
+offset_right = 224.0
+offset_bottom = -40.0
+text = "%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SoundPercentage" type="Label" parent="Labels"]
+offset_left = 96.0
+offset_top = -40.0
+offset_right = 224.0
+offset_bottom = 24.0
+text = "%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="Labels"]
+offset_left = -72.0
+offset_top = -176.0
+offset_right = 56.0
+offset_bottom = -112.0
+theme_override_fonts/font = ExtResource("2_8g6mn")
+theme_override_font_sizes/font_size = 28
+text = "SETTINGS"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SoundFXLabel" type="Label" parent="Labels"]
+offset_left = -256.0
+offset_top = -40.0
+offset_right = -128.0
+offset_bottom = 24.0
+text = "Sound FX"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ShakeLabel" type="Label" parent="Labels"]
+offset_left = -256.0
+offset_top = 24.0
+offset_right = -129.0
+offset_bottom = 88.0
+text = "Enable Shake"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="InteractiveElements" type="Node" parent="."]
+
+[node name="MusicSlider" type="HSlider" parent="InteractiveElements"]
+offset_left = -120.0
+offset_top = -80.0
+offset_right = 160.0
+offset_bottom = -64.0
+min_value = -80.0
+max_value = 0.0
+step = 4.0
+
+[node name="SoundFXSlider" type="HSlider" parent="InteractiveElements"]
+offset_left = -120.0
+offset_top = -16.0
+offset_right = 160.0
+min_value = -80.0
+max_value = 0.0
+step = 4.0
+
+[node name="EnableShakeCheckbox" type="CheckButton" parent="InteractiveElements"]
+offset_left = -128.0
+offset_top = 40.0
+offset_right = -84.0
+offset_bottom = 72.0
+button_pressed = true
+
+[node name="CloseSettings" type="Button" parent="InteractiveElements"]
+offset_left = 344.0
+offset_top = -208.0
+offset_right = 368.0
+offset_bottom = -174.0
+theme_override_font_sizes/font_size = 18
+text = "X"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i3qex")
+}
+
+[connection signal="value_changed" from="InteractiveElements/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="InteractiveElements/SoundFXSlider" to="." method="_on_sound_fx_slider_value_changed"]
+[connection signal="toggled" from="InteractiveElements/EnableShakeCheckbox" to="." method="_on_enable_shake_checkbox_toggled"]
+[connection signal="pressed" from="InteractiveElements/CloseSettings" to="." method="_on_close_settings_pressed"]

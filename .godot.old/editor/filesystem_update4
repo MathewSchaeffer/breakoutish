@@ -1,0 +1,8 @@
+res://scenes/main.tscn
+res://template/splash_screen.gdshader
+res://template/defaultButton.tres
+res://template/SceneManager.tscn
+res://template/splash_screen.tscn
+res://template/TitleScreen.tscn
+res://template/settings_menu.tscn
+res://scenes/music_001.tscn

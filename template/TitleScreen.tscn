@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://8u73soiwb6yq"]
+
+[ext_resource type="Script" uid="uid://d0afuwmb6rmq8" path="res://template/title_screen.gd" id="1_dvbkw"]
+[ext_resource type="Theme" uid="uid://d2psgdku40rys" path="res://template/defaultButton.tres" id="2_0jbof"]
+[ext_resource type="FontFile" uid="uid://d1ptbhfwxht47" path="res://assets/fonts/LondrinaSolid-Regular.ttf" id="2_sxgte"]
+
+[sub_resource type="Environment" id="Environment_sxgte"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
+
+[sub_resource type="Theme" id="Theme_mnkat"]
+Label/font_sizes/font_size = 64
+Label/fonts/font = ExtResource("2_sxgte")
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_dvbkw")
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sxgte")
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(1.4, 1.4, 1.4, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 536.0
+offset_top = 128.0
+offset_right = 802.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_mnkat")
+text = "GAME TITLE"
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="Start" type="Button" parent="Buttons" groups=["start_buttons"]]
+offset_left = 528.0
+offset_top = 328.0
+offset_right = 848.0
+offset_bottom = 392.0
+size_flags_horizontal = 4
+theme = ExtResource("2_0jbof")
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="Buttons" groups=["start_buttons"]]
+offset_left = 528.0
+offset_top = 456.0
+offset_right = 848.0
+offset_bottom = 520.0
+theme = ExtResource("2_0jbof")
+text = "Settings
+"
+
+[node name="Exit" type="Button" parent="Buttons" groups=["start_buttons"]]
+offset_left = 528.0
+offset_top = 584.0
+offset_right = 848.0
+offset_bottom = 648.0
+theme = ExtResource("2_0jbof")
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]

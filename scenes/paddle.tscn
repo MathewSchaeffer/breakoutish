@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl12u7567np1n"]
+
+[ext_resource type="Script" uid="uid://dbj6mg7m2fs2l" path="res://paddle.gd" id="1_3xiby"]
+
+[node name="Paddle" type="CharacterBody2D"]
+script = ExtResource("1_3xiby")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-48, -8, 48, -8, 40, 0, -40, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0.674815, 0.674815, 0.674815, 1)
+polygon = PackedVector2Array(-48, 8, 48, 8, 40, 0, -40, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-48, -8, 48, -8, 40, 0, 48, 8, -48, 8, -40, 0)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://4m0rp2ctdpbf"]
+
+[ext_resource type="Script" uid="uid://cg57lrmwyl11l" path="res://tempfolder/level_2.gd" id="1_fv73u"]
+
+[node name="Level_2" type="Node2D"]
+script = ExtResource("1_fv73u")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level 2"

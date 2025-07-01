@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Godot-4-Starter-Template-V1"
+run/main_scene="uid://ccy32w8vu5c4n"
+config/features=PackedStringArray("4.4", "Mobile")
+boot_splash/show_image=false
+config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://scripts/global.gd"
+SignalBus="*res://scripts/signal_bus.gd"
+SceneManager="*res://template/SceneManager.tscn"
+Debug="*res://scripts/debug.gd"
+Music001="*res://scenes/music_001.tscn"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/inferred_declaration=1
+gdscript/warnings/unsafe_property_access=1
+gdscript/warnings/unsafe_method_access=1
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/initial_position=Vector2i(100, -100)
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+viewport/hdr_2d=true
+environment/defaults/default_clear_color=Color(0.165656, 0.165656, 0.165656, 1)

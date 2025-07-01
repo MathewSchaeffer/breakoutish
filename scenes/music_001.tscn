@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c15234j6w5pig"]
+
+[ext_resource type="AudioStream" uid="uid://dgyyitl5rcig7" path="res://assets/green-sky-125179.mp3" id="1_y1t8y"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_y1t8y")
+autoplay = true
+bus = &"Music"

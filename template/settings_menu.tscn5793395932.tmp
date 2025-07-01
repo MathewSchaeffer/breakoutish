@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://bikkc1tmf4748"]
+
+[ext_resource type="Script" uid="uid://cax6b564xwvmd" path="res://template/settings_menu.gd" id="1_12le4"]
+
+[node name="SettingsMenu" type="CanvasLayer"]
+layer = 9
+script = ExtResource("1_12le4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 256.0
+offset_top = 64.0
+offset_right = 768.0
+offset_bottom = 256.0
+color = Color(0.147672, 0.147672, 0.147672, 1)
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="MusicLabel" type="Label" parent="Labels"]
+offset_left = 256.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 128.0
+text = "Music"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SoundFXLabel" type="Label" parent="Labels"]
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 384.0
+offset_bottom = 192.0
+text = "Music"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ShakeLabel" type="Label" parent="Labels"]
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 383.0
+offset_bottom = 256.0
+text = "Enable Shake"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="InteractiveElements" type="Node" parent="."]
+
+[node name="MusicSlider" type="HSlider" parent="InteractiveElements"]
+offset_left = 392.0
+offset_top = 88.0
+offset_right = 672.0
+offset_bottom = 104.0
+min_value = -80.0
+max_value = 0.0
+
+[node name="SoundFXSlider" type="HSlider" parent="InteractiveElements"]
+offset_left = 392.0
+offset_top = 152.0
+offset_right = 672.0
+offset_bottom = 168.0
+min_value = -80.0
+max_value = 0.0
+
+[node name="EnableShakeCheckbox" type="CheckButton" parent="InteractiveElements"]
+offset_left = 384.0
+offset_top = 208.0
+offset_right = 428.0
+offset_bottom = 240.0
+button_pressed = true
+
+[node name="CloseSettings" type="Button" parent="InteractiveElements"]
+offset_left = 736.0
+offset_top = 72.0
+offset_right = 760.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 18
+text = "X"
+
+[connection signal="value_changed" from="InteractiveElements/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="InteractiveElements/SoundFXSlider" to="." method="_on_sound_fx_slider_value_changed"]
+[connection signal="toggled" from="InteractiveElements/EnableShakeCheckbox" to="." method="_on_enable_shake_checkbox_toggled"]
+[connection signal="pressed" from="InteractiveElements/CloseSettings" to="." method="_on_close_settings_pressed"]
