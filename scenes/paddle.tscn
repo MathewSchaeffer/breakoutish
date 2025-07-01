@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dbj6mg7m2fs2l" path="res://paddle.gd" id="1_3xiby"]
 
 [node name="Paddle" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_3xiby")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]

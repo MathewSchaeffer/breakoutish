@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0nv7av5lu2yb"]
+[gd_scene load_steps=3 format=3 uid="uid://c0nv7av5lu2yb"]
 
 [ext_resource type="Script" uid="uid://bohdmk681elkg" path="res://tempfolder/level_1.gd" id="1_1fa48"]
+[ext_resource type="PackedScene" uid="uid://cl12u7567np1n" path="res://scenes/paddle.tscn" id="2_jirdo"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_1fa48")
@@ -9,3 +10,8 @@ script = ExtResource("1_1fa48")
 offset_right = 192.0
 offset_bottom = 54.0
 text = "Level 1"
+
+[node name="GameField" type="Node" parent="."]
+
+[node name="Paddle" parent="GameField" instance=ExtResource("2_jirdo")]
+position = Vector2(192, 600)

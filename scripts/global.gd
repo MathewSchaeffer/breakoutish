@@ -9,6 +9,7 @@ var soundFxVol: int = 0
 var shakeEnabled: bool = true
 @onready var musicBus: int = AudioServer.get_bus_index("Music")
 @onready var soundFxBus: int = AudioServer.get_bus_index("SoundFX")
+var isPlaying: bool = true
 
 
 func _ready() -> void:
