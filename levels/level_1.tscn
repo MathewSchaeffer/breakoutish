@@ -1,10 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0nv7av5lu2yb"]
+[gd_scene load_steps=6 format=3 uid="uid://c0nv7av5lu2yb"]
 
 [ext_resource type="Script" uid="uid://bohdmk681elkg" path="res://tempfolder/level_1.gd" id="1_1fa48"]
 [ext_resource type="PackedScene" uid="uid://cl12u7567np1n" path="res://scenes/paddle.tscn" id="2_jirdo"]
+[ext_resource type="PackedScene" uid="uid://b4ikesqsogyh7" path="res://scenes/ball.tscn" id="2_kx6l7"]
+[ext_resource type="PackedScene" uid="uid://dqt85mb1vinx3" path="res://scenes/boundary.tscn" id="3_bt44k"]
+
+[sub_resource type="Environment" id="Environment_bt44k"]
+background_mode = 3
+glow_enabled = true
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_1fa48")
+
+[node name="Ball" parent="." instance=ExtResource("2_kx6l7")]
+position = Vector2(424, 136)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bt44k")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 192.0
@@ -14,4 +29,7 @@ text = "Level 1"
 [node name="GameField" type="Node" parent="."]
 
 [node name="Paddle" parent="GameField" instance=ExtResource("2_jirdo")]
-position = Vector2(192, 600)
+position = Vector2(192, 640)
+
+[node name="Boundary" parent="." instance=ExtResource("3_bt44k")]
+metadata/_edit_lock_ = true

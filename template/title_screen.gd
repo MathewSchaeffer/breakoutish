@@ -38,7 +38,7 @@ func _on_start_pressed() -> void:
 	if Global.settingsMenuOpen == true:
 		return
 	else:
-		SceneManager.change_scene(SceneManager.LEVEL_1, "fade_to_black") 
+		SceneManager.change_scene(SceneManager.LEVEL_1, "fade_to_black", 2) 
 
 
 func _on_settings_pressed() -> void:
