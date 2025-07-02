@@ -17,18 +17,13 @@ func _ready() -> void:
 	velocity = speed * startingMovement
 	
 func _physics_process(delta: float) -> void:
-	var collision_info = move_and_collide(velocity * delta)
+	var collision_info: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision_info: # We only want to bounce if the ball actually collided.
-		velocity *= 1.005
-		print("BOING")
+		#velocity *= 1.005
 		velocity = velocity.bounce(collision_info.get_normal())
-		var collider = collision_info.get_collider()
-		if collider.is_in_group("bricks"):
-			collider.queue_free()
-		#audio_stream_player.play()
-		#audioPitchScale *= 1.05
-		#audio_stream_player.pitch_scale = audioPitchScale
-		#SignalBus.shake.emit()
+		var collider: Brick = collision_info.get_collider() as Brick
+		if collider is Brick:
+			collider.hit(1)
 		
 
 		
