@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqt85mb1vinx3"]
+[gd_scene load_steps=4 format=3 uid="uid://dqt85mb1vinx3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfxeu"]
 size = Vector2(48, 729)
@@ -6,10 +6,13 @@ size = Vector2(48, 729)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6flaw"]
 size = Vector2(1320, 40)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qfxeu"]
+distance = -768.0
+
 [node name="Boundary" type="Node2D"]
 
 [node name="Wall" type="StaticBody2D" parent="."]
-collision_mask = 2
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 position = Vector2(-24, 352)
@@ -28,3 +31,8 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(628, -20)
 shape = SubResource("RectangleShape2D_6flaw")
+
+[node name="Killbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
+shape = SubResource("WorldBoundaryShape2D_qfxeu")
