@@ -29,9 +29,33 @@ text = "Level 1"
 
 [node name="GameField" type="Node" parent="."]
 
-[node name="Background" type="Sprite2D" parent="GameField"]
+[node name="ColorRect" type="ColorRect" parent="GameField"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0361058, 0.000555745, 0.0763369, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="GameField"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0361058, 0.000555745, 0.0763369, 1)
+metadata/_edit_lock_ = true
+
+[node name="BackgroundImage" type="Sprite2D" parent="GameField"]
 self_modulate = Color(1.2, 1.2, 1.2, 1)
 position = Vector2(639, 550)
+texture = ExtResource("2_btoec")
+
+[node name="BackgroundImage2" type="Sprite2D" parent="GameField"]
+self_modulate = Color(1.2, 1.2, 1.2, 0.0980392)
+position = Vector2(639, 158)
+rotation = 3.14159
 texture = ExtResource("2_btoec")
 
 [node name="Ball" parent="GameField" instance=ExtResource("2_kx6l7")]
