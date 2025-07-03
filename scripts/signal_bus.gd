@@ -4,3 +4,4 @@ extends Node
 
 signal settings_menu_open
 signal settings_menu_close
+signal shake
