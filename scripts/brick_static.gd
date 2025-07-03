@@ -3,17 +3,14 @@ class_name Brick
 
 @export var hp: int = 3
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	check_for_death()
+	check_status() #allocate correct colours to bricks depending on number of HP
 	
 func hit(damage: int) -> void:
-	print("hobby! I've been hit!")
 	hp -= damage
-	print(hp)
-	check_for_death()
+	check_status()
 
-func check_for_death() -> void:
+func check_status() -> void:
 	if hp == 3:
 		self.modulate = Color(Color.GREEN)
 	elif hp == 2:

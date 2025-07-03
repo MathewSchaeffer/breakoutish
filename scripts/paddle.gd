@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
 @export var speed: float = 500.0
-var initialPosition: Vector2
 @export var deltaTest: bool = false
+var initialPosition: Vector2
 
 func _ready() -> void:
-	
 	center_paddle()
 	initialPosition = self.position
 	
@@ -13,8 +12,7 @@ func _ready() -> void:
 func center_paddle() -> void:
 	var screenSize: Vector2 = get_viewport_rect().size
 	self.position.x = screenSize.x / 2
-	print(self.position)
-	print(screenSize)
+
 
 func _physics_process(_delta: float) -> void:
 	input_and_movement()

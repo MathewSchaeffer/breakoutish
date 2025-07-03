@@ -18,8 +18,6 @@ func _ready() -> void:
 
 func load_settings() -> void:
 	var err: int = settingsConfig.load("user://settings.cfg")
-	Debug.print_type_of(err, "err")
-	print(err)
 	#print(OS.get_data_dir())
 	if err != OK:
 		print("no config file found... loading defaults")

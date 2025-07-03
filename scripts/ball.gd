@@ -4,15 +4,9 @@ var speed: int = 250
 var startingMovement: Vector2 = Vector2.ZERO
 var startArray: Array = [Vector2(-1,-1), Vector2(-1,1), Vector2(1,1), Vector2(1,-1)]
 var viewport: Vector2
-#@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-#var audioPitchScale = 1
 
 
 func _ready() -> void:
-	
-	#viewport = get_viewport_rect().size
-	#self.position.x = viewport.x / 2
-	#self.position.y = viewport.y / 2
 	startingMovement = startArray[randi_range(0,3)]
 	velocity = speed * startingMovement
 	

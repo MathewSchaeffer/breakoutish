@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0nv7av5lu2yb"]
+[gd_scene load_steps=8 format=3 uid="uid://c0nv7av5lu2yb"]
 
 [ext_resource type="Script" uid="uid://bohdmk681elkg" path="res://tempfolder/level_1.gd" id="1_1fa48"]
+[ext_resource type="Texture2D" uid="uid://cdsp66eic5fvl" path="res://assets/retro-1548260_1280.png" id="2_btoec"]
 [ext_resource type="PackedScene" uid="uid://cl12u7567np1n" path="res://scenes/paddle.tscn" id="2_jirdo"]
 [ext_resource type="PackedScene" uid="uid://b4ikesqsogyh7" path="res://scenes/ball.tscn" id="2_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://dqt85mb1vinx3" path="res://scenes/boundary.tscn" id="3_bt44k"]
@@ -9,12 +10,14 @@
 [sub_resource type="Environment" id="Environment_bt44k"]
 background_mode = 3
 glow_enabled = true
+glow_intensity = 0.75
+glow_strength = 1.17
+glow_bloom = 0.12
+glow_blend_mode = 1
+glow_hdr_threshold = 0.91
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_1fa48")
-
-[node name="Ball" parent="." instance=ExtResource("2_kx6l7")]
-position = Vector2(640, 608)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bt44k")
@@ -26,248 +29,294 @@ text = "Level 1"
 
 [node name="GameField" type="Node" parent="."]
 
+[node name="Background" type="Sprite2D" parent="GameField"]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+position = Vector2(639, 550)
+texture = ExtResource("2_btoec")
+
+[node name="Ball" parent="GameField" instance=ExtResource("2_kx6l7")]
+position = Vector2(640, 608)
+
+[node name="Boundary" parent="GameField" instance=ExtResource("3_bt44k")]
+metadata/_edit_lock_ = true
+
 [node name="Paddle" parent="GameField" instance=ExtResource("2_jirdo")]
 position = Vector2(192, 640)
 
-[node name="Boundary" parent="." instance=ExtResource("3_bt44k")]
-metadata/_edit_lock_ = true
+[node name="Bricks" type="Node" parent="GameField"]
 
-[node name="Brick_Static" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(64, 64)
 
-[node name="Brick_Static2" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static2" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(192, 64)
 
-[node name="Brick_Static3" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static3" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(320, 64)
 
-[node name="Brick_Static4" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static4" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(448, 64)
 
-[node name="Brick_Static5" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static5" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(576, 64)
 
-[node name="Brick_Static6" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static6" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(704, 64)
 
-[node name="Brick_Static7" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static7" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(832, 64)
 
-[node name="Brick_Static8" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static8" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(960, 64)
 
-[node name="Brick_Static9" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static9" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1088, 64)
 
-[node name="Brick_Static10" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static10" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1216, 64)
 
-[node name="Brick_Static11" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static11" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(64, 88)
 
-[node name="Brick_Static12" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static12" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(192, 88)
 
-[node name="Brick_Static13" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static13" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(320, 88)
 
-[node name="Brick_Static14" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static14" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(448, 88)
 
-[node name="Brick_Static15" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static15" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(576, 88)
 
-[node name="Brick_Static16" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static16" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(704, 88)
 
-[node name="Brick_Static17" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static17" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(832, 88)
 
-[node name="Brick_Static18" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static18" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(960, 88)
 
-[node name="Brick_Static19" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static19" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1088, 88)
 
-[node name="Brick_Static20" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static20" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1216, 88)
 
-[node name="Brick_Static21" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static21" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(64, 120)
+hp = 2
 
-[node name="Brick_Static22" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static22" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(192, 120)
+hp = 2
 
-[node name="Brick_Static23" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static23" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(320, 120)
+hp = 2
 
-[node name="Brick_Static24" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static24" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(448, 120)
+hp = 2
 
-[node name="Brick_Static25" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static25" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(576, 120)
+hp = 2
 
-[node name="Brick_Static26" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static26" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(704, 120)
+hp = 2
 
-[node name="Brick_Static27" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static27" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(832, 120)
+hp = 2
 
-[node name="Brick_Static28" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static28" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(960, 120)
+hp = 2
 
-[node name="Brick_Static29" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static29" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1088, 120)
+hp = 2
 
-[node name="Brick_Static30" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static30" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1216, 120)
+hp = 2
 
-[node name="Brick_Static31" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static31" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(64, 144)
+hp = 2
 
-[node name="Brick_Static32" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static32" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(192, 144)
+hp = 2
 
-[node name="Brick_Static33" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static33" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(320, 144)
+hp = 2
 
-[node name="Brick_Static34" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static34" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(448, 144)
+hp = 2
 
-[node name="Brick_Static35" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static35" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(576, 144)
+hp = 2
 
-[node name="Brick_Static36" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static36" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(704, 144)
+hp = 2
 
-[node name="Brick_Static37" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static37" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(832, 144)
+hp = 2
 
-[node name="Brick_Static38" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static38" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(960, 144)
+hp = 2
 
-[node name="Brick_Static39" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static39" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1088, 144)
+hp = 2
 
-[node name="Brick_Static40" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static40" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1216, 144)
+hp = 2
 
-[node name="Brick_Static41" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static41" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(64, 184)
 
-[node name="Brick_Static42" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static42" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(192, 184)
 
-[node name="Brick_Static43" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static43" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(320, 184)
 
-[node name="Brick_Static44" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static44" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(448, 184)
+hp = 1
 
-[node name="Brick_Static45" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static45" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(576, 184)
+hp = 1
 
-[node name="Brick_Static46" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static46" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(704, 184)
+hp = 1
 
-[node name="Brick_Static47" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static47" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(832, 184)
+hp = 1
 
-[node name="Brick_Static48" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static48" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(960, 184)
 
-[node name="Brick_Static49" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static49" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1088, 184)
 
-[node name="Brick_Static50" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static50" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1216, 184)
 
-[node name="Brick_Static51" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static51" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(64, 208)
 
-[node name="Brick_Static52" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static52" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(192, 208)
 
-[node name="Brick_Static53" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static53" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(320, 208)
 
-[node name="Brick_Static54" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static54" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(448, 208)
+hp = 1
 
-[node name="Brick_Static55" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static55" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(576, 208)
+hp = 1
 
-[node name="Brick_Static56" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static56" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(704, 208)
+hp = 1
 
-[node name="Brick_Static57" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static57" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(832, 208)
+hp = 1
 
-[node name="Brick_Static58" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static58" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(960, 208)
 
-[node name="Brick_Static59" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static59" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1088, 208)
 
-[node name="Brick_Static60" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static60" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1216, 208)
 
-[node name="Brick_Static61" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static61" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(64, 240)
 
-[node name="Brick_Static62" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static62" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(192, 240)
 
-[node name="Brick_Static63" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static63" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(320, 240)
 
-[node name="Brick_Static64" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static64" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(448, 240)
+hp = 1
 
-[node name="Brick_Static65" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static65" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(576, 240)
+hp = 1
 
-[node name="Brick_Static66" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static66" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(704, 240)
+hp = 1
 
-[node name="Brick_Static67" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static67" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(832, 240)
+hp = 1
 
-[node name="Brick_Static68" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static68" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(960, 240)
 
-[node name="Brick_Static69" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static69" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1088, 240)
 
-[node name="Brick_Static70" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static70" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1216, 240)
 
-[node name="Brick_Static71" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static71" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(64, 264)
 
-[node name="Brick_Static72" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static72" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(192, 264)
 
-[node name="Brick_Static73" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static73" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(320, 264)
 
-[node name="Brick_Static74" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static74" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(448, 264)
+hp = 1
 
-[node name="Brick_Static75" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static75" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(576, 264)
+hp = 1
 
-[node name="Brick_Static76" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static76" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(704, 264)
+hp = 1
 
-[node name="Brick_Static77" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static77" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(832, 264)
+hp = 1
 
-[node name="Brick_Static78" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static78" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(960, 264)
 
-[node name="Brick_Static79" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static79" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1088, 264)
 
-[node name="Brick_Static80" parent="." instance=ExtResource("5_n46q3")]
+[node name="Brick_Static80" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1216, 264)
