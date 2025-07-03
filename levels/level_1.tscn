@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0nv7av5lu2yb"]
+[gd_scene load_steps=12 format=3 uid="uid://c0nv7av5lu2yb"]
 
 [ext_resource type="Script" uid="uid://bohdmk681elkg" path="res://tempfolder/level_1.gd" id="1_1fa48"]
 [ext_resource type="Texture2D" uid="uid://cdsp66eic5fvl" path="res://assets/retro-1548260_1280.png" id="2_btoec"]
@@ -17,6 +17,43 @@ glow_bloom = 0.12
 glow_blend_mode = 1
 glow_hdr_threshold = 0.91
 
+[sub_resource type="Animation" id="Animation_gwceb"]
+resource_name = "score_up"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l53as"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3sk1a"]
+_data = {
+&"RESET": SubResource("Animation_l53as"),
+&"score_up": SubResource("Animation_gwceb")
+}
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_1fa48")
 
@@ -24,11 +61,6 @@ script = ExtResource("1_1fa48")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bt44k")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 192.0
-offset_bottom = 54.0
-text = "Level 1"
 
 [node name="GameField" type="Node" parent="."]
 
@@ -55,6 +87,12 @@ self_modulate = Color(1.2, 1.2, 1.2, 1)
 position = Vector2(639, 550)
 texture = ExtResource("2_btoec")
 
+[node name="BackgroundImage3" type="Sprite2D" parent="GameField"]
+self_modulate = Color(1.2, 1.2, 1.2, 0.049)
+position = Vector2(639, 607)
+scale = Vector2(1, 1.17813)
+texture = ExtResource("2_btoec")
+
 [node name="BackgroundImage2" type="Sprite2D" parent="GameField"]
 self_modulate = Color(1.2, 1.2, 1.2, 0.0980392)
 position = Vector2(639, 158)
@@ -70,7 +108,8 @@ metadata/_edit_lock_ = true
 [node name="Paddle" parent="GameField" instance=ExtResource("2_jirdo")]
 position = Vector2(192, 640)
 
-[node name="Bricks" type="Node" parent="GameField"]
+[node name="Bricks" type="Node2D" parent="GameField"]
+position = Vector2(0, 32)
 
 [node name="Brick_Static" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(64, 64)
@@ -347,3 +386,32 @@ position = Vector2(1088, 264)
 
 [node name="Brick_Static80" parent="GameField/Bricks" instance=ExtResource("5_n46q3")]
 position = Vector2(1216, 264)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.0
+offset_right = 102.0
+offset_bottom = 40.0
+grow_horizontal = 2
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 4
+
+[node name="Score" type="Label" parent="CanvasLayer/UI"]
+offset_right = 192.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 22
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI/Score"]
+libraries = {
+&"": SubResource("AnimationLibrary_3sk1a")
+}
+
+[connection signal="grant_score" from="GameField/Ball" to="." method="_on_ball_grant_score"]

@@ -5,6 +5,7 @@ var startingMovement: Vector2 = Vector2.ZERO
 var startArray: Array = [Vector2(-1,-1), Vector2(-1,1), Vector2(1,1), Vector2(1,-1)]
 var viewport: Vector2
 
+signal grant_score
 
 func _ready() -> void:
 	startingMovement = startArray[randi_range(0,3)]
@@ -19,7 +20,10 @@ func _physics_process(delta: float) -> void:
 		var collider: Brick = collision_info.get_collider() as Brick
 		if collider is Brick:
 			collider.hit(1)
-		
+			if !collider.hp == 0:
+				grant_score.emit(10)
+			else: 
+				grant_score.emit(25)
 
 		
 	
