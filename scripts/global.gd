@@ -10,6 +10,9 @@ var shakeEnabled: bool = true
 @onready var musicBus: int = AudioServer.get_bus_index("Music")
 @onready var soundFxBus: int = AudioServer.get_bus_index("SoundFX")
 var isPlaying: bool = true
+var save_path: String = "user://score.save"
+var highscore: int
+var firstBall: bool = true
 
 
 func _ready() -> void:
@@ -39,3 +42,16 @@ func settings_to_default() -> void:
 	settingsConfig.set_value("Settings", "shake_enabled", true)
 	settingsConfig.save("user://settings.cfg")
 	
+
+func save_score() -> void:
+	var file: FileAccess = FileAccess.open(save_path, FileAccess.WRITE)
+	file.store_var(highscore)
+	
+func load_score() -> void:
+	if FileAccess.file_exists(save_path):
+		print("file found")
+		var file: FileAccess = FileAccess.open(save_path, FileAccess.READ)
+		highscore = file.get_var()
+	else:
+		print("file not found")
+		highscore = 0

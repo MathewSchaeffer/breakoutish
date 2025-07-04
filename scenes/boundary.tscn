@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqt85mb1vinx3"]
+[gd_scene load_steps=5 format=3 uid="uid://dqt85mb1vinx3"]
+
+[ext_resource type="Script" uid="uid://cffp5q8t1lqkm" path="res://scripts/boundary.gd" id="1_6flaw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfxeu"]
 size = Vector2(48, 729)
@@ -10,6 +12,7 @@ size = Vector2(1320, 40)
 distance = -768.0
 
 [node name="Boundary" type="Node2D"]
+script = ExtResource("1_6flaw")
 
 [node name="Wall" type="StaticBody2D" parent="."]
 collision_mask = 6
@@ -33,6 +36,9 @@ position = Vector2(628, -20)
 shape = SubResource("RectangleShape2D_6flaw")
 
 [node name="Killbox" type="Area2D" parent="."]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
 shape = SubResource("WorldBoundaryShape2D_qfxeu")
+
+[connection signal="body_entered" from="Killbox" to="." method="_on_killbox_body_entered"]

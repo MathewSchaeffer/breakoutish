@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxicgiakbagop"]
+
+[ext_resource type="Script" uid="uid://bif1nau8aevkh" path="res://scripts/ball_spawn.gd" id="1_8w4ms"]
+
+[sub_resource type="Animation" id="Animation_2s354"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 50)]
+}
+
+[sub_resource type="Animation" id="Animation_cpr78"]
+resource_name = "zoom_spawn"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, 50), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_etjy1"]
+_data = {
+&"RESET": SubResource("Animation_2s354"),
+&"zoom_spawn": SubResource("Animation_cpr78")
+}
+
+[node name="BallSpawn" type="Polygon2D"]
+scale = Vector2(50, 50)
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+script = ExtResource("1_8w4ms")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_etjy1")
+}
