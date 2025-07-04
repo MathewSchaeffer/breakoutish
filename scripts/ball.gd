@@ -10,6 +10,13 @@ var viewport: Vector2
 
 
 func _ready() -> void:
+	init_ball_movement()
+	
+func _physics_process(delta: float) -> void:
+	ball_collision_handler(delta)
+
+
+func init_ball_movement() -> void:
 	if Global.firstBall == true:
 		startingMovement = startArray[randi_range(0,3)]
 		Global.firstBall = false
@@ -18,7 +25,7 @@ func _ready() -> void:
 		
 	velocity = speed * startingMovement
 	
-func _physics_process(delta: float) -> void:
+func ball_collision_handler(delta: float) -> void:
 	var collision_info: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision_info: # We only want to bounce if the ball actually collided.
 		velocity *= 1.0005
@@ -30,8 +37,5 @@ func _physics_process(delta: float) -> void:
 			if !collider.hp == 0:
 				SignalBus.grant_score.emit(10)
 			else: 
-				SignalBus.grant_score.emit(25)
-
-
-		
+				SignalBus.grant_score.emit(25)	
 	
