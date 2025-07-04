@@ -417,5 +417,3 @@ vertical_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_3sk1a")
 }
-
-[connection signal="grant_score" from="GameField/Balls/Ball" to="." method="_on_ball_grant_score"]

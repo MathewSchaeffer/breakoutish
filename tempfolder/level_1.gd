@@ -13,6 +13,7 @@ const BALL: PackedScene = preload("res://scenes/ball.tscn")
 func _ready() -> void:
 	screenSize = get_viewport_rect().size
 	SignalBus.spawn_new_ball.connect(spawn_ball)
+	SignalBus.grant_score.connect(increase_score)
 	
 func spawn_ball() -> void:
 	var newBallSpawn: BallSpawn = BALL_SPAWN.instantiate()

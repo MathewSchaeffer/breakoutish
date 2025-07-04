@@ -7,7 +7,7 @@ var startArray: Array = [Vector2(-1,-1), Vector2(-1,1), Vector2(1,1), Vector2(1,
 var viewport: Vector2
 @onready var paddle: CharacterBody2D = $"../../Paddle"
 
-signal grant_score
+
 
 func _ready() -> void:
 	if Global.firstBall == true:
@@ -21,16 +21,17 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var collision_info: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision_info: # We only want to bounce if the ball actually collided.
-		#velocity *= 1.005
+		velocity *= 1.0005
 		SignalBus.shake.emit()
 		velocity = velocity.bounce(collision_info.get_normal())
 		var collider: Brick = collision_info.get_collider() as Brick
 		if collider is Brick:
 			collider.hit(1)
 			if !collider.hp == 0:
-				grant_score.emit(10)
+				SignalBus.grant_score.emit(10)
 			else: 
-				grant_score.emit(25)
+				SignalBus.grant_score.emit(25)
+
 
 		
 	
