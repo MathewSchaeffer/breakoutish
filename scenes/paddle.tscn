@@ -8,11 +8,11 @@ motion_mode = 1
 script = ExtResource("1_3xiby")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-48, -8, 48, -8, 56, 0, -56, 0)
+polygon = PackedVector2Array(-48, -8, 48, -8, 72, 0, -72, 0)
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
 color = Color(0.674815, 0.674815, 0.674815, 1)
-polygon = PackedVector2Array(-48, 8, 48, 8, 56, 0, -56, 0)
+polygon = PackedVector2Array(-48, 8, 48, 8, 72, 0, -72, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-48, -8, 48, -8, 56, 0, 48, 8, -48, 8, -56, 0)
+polygon = PackedVector2Array(-48, -8, 48, -8, 72, 0, 48, 8, -48, 8, -72, 0)

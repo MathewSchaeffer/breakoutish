@@ -20,6 +20,7 @@ position = Vector2(640, 536)
 texture = ExtResource("2_61w2s")
 
 [node name="Retro-15482601281" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.234)
 position = Vector2(640, 144)
 rotation = -3.14159
 texture = ExtResource("2_61w2s")

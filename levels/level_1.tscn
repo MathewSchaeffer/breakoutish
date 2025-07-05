@@ -400,15 +400,15 @@ vertical_alignment = 1
 
 [node name="LivesIconContainer" type="Node" parent="CanvasLayer/Lives"]
 
-[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/Lives/LivesIconContainer"]
+[node name="Icon1" type="Polygon2D" parent="CanvasLayer/Lives/LivesIconContainer"]
 position = Vector2(1025.55, 4.54545)
 polygon = PackedVector2Array(50.9999, 29.0909, 65.5455, 29.0909, 65.5455, 43.6364, 50.9999, 43.6364)
 
-[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/Lives/LivesIconContainer"]
+[node name="Icon2" type="Polygon2D" parent="CanvasLayer/Lives/LivesIconContainer"]
 position = Vector2(1054.64, 4.54545)
 polygon = PackedVector2Array(50.9999, 29.0909, 65.5455, 29.0909, 65.5455, 43.6364, 50.9999, 43.6364)
 
-[node name="Polygon2D3" type="Polygon2D" parent="CanvasLayer/Lives/LivesIconContainer"]
+[node name="Icon3" type="Polygon2D" parent="CanvasLayer/Lives/LivesIconContainer"]
 position = Vector2(1083.73, 4.54545)
 polygon = PackedVector2Array(50.9999, 29.0909, 65.5455, 29.0909, 65.5455, 43.6364, 50.9999, 43.6364)
 
