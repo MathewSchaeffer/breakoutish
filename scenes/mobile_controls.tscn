@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://nlb477oosjgx"]
+
+[ext_resource type="Script" uid="uid://30yiyhd1uvww" path="res://scripts/mobile_controls.gd" id="1_k8ypl"]
+
+[node name="MobileControls" type="Node2D"]
+script = ExtResource("1_k8ypl")
+
+[node name="ButtonLeft" type="Button" parent="."]
+offset_right = 384.0
+offset_bottom = 720.0
+text = "<"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="ButtonLeft"]
+
+[node name="ButtonRight" type="Button" parent="."]
+offset_left = 896.0
+offset_right = 1280.0
+offset_bottom = 720.0
+text = ">"
+
+[connection signal="pressed" from="ButtonLeft/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

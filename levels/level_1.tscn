@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0nv7av5lu2yb"]
+[gd_scene load_steps=13 format=3 uid="uid://c0nv7av5lu2yb"]
 
 [ext_resource type="Script" uid="uid://bohdmk681elkg" path="res://tempfolder/level_1.gd" id="1_1fa48"]
 [ext_resource type="Texture2D" uid="uid://cdsp66eic5fvl" path="res://assets/retro-1548260_1280.png" id="2_btoec"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dqt85mb1vinx3" path="res://scenes/boundary.tscn" id="3_bt44k"]
 [ext_resource type="PackedScene" uid="uid://bdwik3mt2r13j" path="res://scenes/defaultEnvironment.tscn" id="3_l53as"]
 [ext_resource type="PackedScene" uid="uid://cqce24swt2b0d" path="res://scenes/brick_static.tscn" id="5_n46q3"]
+[ext_resource type="PackedScene" uid="uid://nlb477oosjgx" path="res://scenes/mobile_controls.tscn" id="9_3sk1a"]
 
 [sub_resource type="Animation" id="Animation_l53as"]
 length = 0.001
@@ -441,3 +442,20 @@ vertical_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_3sk1a")
 }
+
+[node name="HighScore" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 1
+offset_left = 23.1405
+offset_top = 23.9669
+offset_right = 148.141
+offset_bottom = 54.9669
+text = "High Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI/HighScore"]
+libraries = {
+&"": SubResource("AnimationLibrary_3sk1a")
+}
+
+[node name="MobileControls" parent="." instance=ExtResource("9_3sk1a")]

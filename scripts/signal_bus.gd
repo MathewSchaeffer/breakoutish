@@ -9,3 +9,6 @@ signal spawn_new_ball
 signal grant_score
 signal lose_life
 signal game_over
+signal new_high_score_reached
+signal mobile_touch_left
+signal mobile_touch_right

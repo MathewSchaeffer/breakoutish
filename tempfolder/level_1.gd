@@ -7,6 +7,7 @@ var playerScore: int = 0
 @onready var balls: Node = $GameField/Balls
 @onready var lives_icon_container: Node = $CanvasLayer/Lives/LivesIconContainer
 var livesIcons: Array 
+@onready var high_score: Label = $CanvasLayer/UI/HighScore
 
 
 
@@ -15,11 +16,14 @@ const BALL_SPAWN: PackedScene = preload("res://scenes/ball_spawn.tscn")
 const BALL: PackedScene = preload("res://scenes/ball.tscn")
 
 func _ready() -> void:
+	reset_game()
 	screenSize = get_viewport_rect().size
 	SignalBus.spawn_new_ball.connect(spawn_ball)
 	SignalBus.grant_score.connect(increase_score)
 	SignalBus.lose_life.connect(lives_check)
 	livesIcons = lives_icon_container.get_children()
+	high_score.text = "High Score: " + str(Global.highscore)
+	reset_game()
 	
 func spawn_ball() -> void:
 	if Global.lives <= 0:
@@ -45,6 +49,11 @@ func increase_score(score: int) -> void:
 	playerScore += score
 	score_label.text = str(playerScore)
 	#animation_player.play("score_up")
+	if playerScore > Global.highscore:
+		Global.highscore = playerScore
+		high_score.text = "High Score: " + str(Global.highscore)
+		Global.newHighScore = true
+		SignalBus.new_high_score_reached.emit()
 	
 
 
@@ -67,3 +76,11 @@ func lives_check() -> void:
 		print(livesIcons)
 		print("GAME OVER")
 		SignalBus.game_over.emit()
+		Global.save_score()
+		Global.firstBall = true
+		await get_tree().create_timer(0.5).timeout
+		SceneManager.change_scene(SceneManager.GAME_OVER_SCREEN, "swipe_from_left")
+
+func reset_game() -> void:
+	Global.lives = 2
+	Global.newHighScore = false

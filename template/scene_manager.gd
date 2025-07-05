@@ -4,6 +4,7 @@ extends CanvasLayer
 const TITLE_SCREEN: String = "res://template/TitleScreen.tscn"
 const LEVEL_1: String = "res://levels/level_1.tscn"
 const LEVEL_2: String = "res://levels/level_2.tscn"
+const GAME_OVER_SCREEN: String = "res://scenes/game_over_screen.tscn"
 var scene_is_changing: bool = false
 var simpleTransitionArray: Array = ["fade_to_black", "swipe_from_left"]
 var advancedTransitionArray: Array = ["curtain_close_horizontal", "curtain_close_vertical"]

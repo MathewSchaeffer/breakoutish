@@ -14,10 +14,12 @@ var save_path: String = "user://score.save"
 var highscore: int
 var firstBall: bool = true
 var lives: int = 2
+var newHighScore: bool = false
 
 
 func _ready() -> void:
 	load_settings()
+	load_score()
 
 
 func load_settings() -> void:
