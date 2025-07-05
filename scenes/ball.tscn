@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4ikesqsogyh7"]
+[gd_scene load_steps=4 format=3 uid="uid://b4ikesqsogyh7"]
 
 [ext_resource type="Script" uid="uid://cxx6dm0v2mykv" path="res://scripts/ball.gd" id="1_7s4qf"]
+[ext_resource type="AudioStream" uid="uid://cannwrffon4kt" path="res://assets/click.wav" id="2_cxlvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxlvu"]
 size = Vector2(16, 16)
@@ -17,3 +18,7 @@ shape = SubResource("RectangleShape2D_cxlvu")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-8, -8, -8, -8, 8, -8, 8, 8, -8, 8)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cxlvu")
+bus = &"SoundFX"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0nv7av5lu2yb"]
+[gd_scene load_steps=14 format=3 uid="uid://c0nv7av5lu2yb"]
 
 [ext_resource type="Script" uid="uid://bohdmk681elkg" path="res://tempfolder/level_1.gd" id="1_1fa48"]
 [ext_resource type="Texture2D" uid="uid://cdsp66eic5fvl" path="res://assets/retro-1548260_1280.png" id="2_btoec"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ikesqsogyh7" path="res://scenes/ball.tscn" id="2_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://dqt85mb1vinx3" path="res://scenes/boundary.tscn" id="3_bt44k"]
 [ext_resource type="PackedScene" uid="uid://bdwik3mt2r13j" path="res://scenes/defaultEnvironment.tscn" id="3_l53as"]
+[ext_resource type="Texture2D" uid="uid://ctxumbgvucdb5" path="res://assets/Rectangle 1.png" id="5_08mmt"]
 [ext_resource type="PackedScene" uid="uid://cqce24swt2b0d" path="res://scenes/brick_static.tscn" id="5_n46q3"]
 [ext_resource type="PackedScene" uid="uid://nlb477oosjgx" path="res://scenes/mobile_controls.tscn" id="9_3sk1a"]
 
@@ -57,6 +58,7 @@ script = ExtResource("1_1fa48")
 [node name="GameField" type="Node" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="GameField"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -67,6 +69,7 @@ color = Color(0.0361058, 0.000555745, 0.0763369, 1)
 metadata/_edit_lock_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="GameField"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -92,6 +95,12 @@ self_modulate = Color(1.2, 1.2, 1.2, 0.0980392)
 position = Vector2(639, 158)
 rotation = 3.14159
 texture = ExtResource("2_btoec")
+
+[node name="Rectangle1" type="Sprite2D" parent="GameField"]
+modulate = Color(0, 0, 0, 0.946)
+position = Vector2(640, 388)
+scale = Vector2(1, 1.07778)
+texture = ExtResource("5_08mmt")
 
 [node name="Balls" type="Node" parent="GameField"]
 

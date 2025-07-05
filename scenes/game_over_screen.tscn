@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dtmul6hciwimt"]
+[gd_scene load_steps=7 format=3 uid="uid://dtmul6hciwimt"]
 
 [ext_resource type="Script" uid="uid://dmylkkx84byyk" path="res://scripts/game_over_screen.gd" id="1_iwahs"]
 [ext_resource type="Texture2D" uid="uid://cdsp66eic5fvl" path="res://assets/retro-1548260_1280.png" id="2_61w2s"]
 [ext_resource type="PackedScene" uid="uid://bdwik3mt2r13j" path="res://scenes/defaultEnvironment.tscn" id="3_jw6e5"]
+[ext_resource type="Texture2D" uid="uid://ctxumbgvucdb5" path="res://assets/Rectangle 1.png" id="3_xx0b3"]
+[ext_resource type="FontFile" uid="uid://d1ptbhfwxht47" path="res://assets/fonts/LondrinaSolid-Regular.ttf" id="4_5i0af"]
+[ext_resource type="Theme" uid="uid://d2psgdku40rys" path="res://template/defaultButton.tres" id="5_nh6my"]
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -25,6 +28,11 @@ position = Vector2(640, 144)
 rotation = -3.14159
 texture = ExtResource("2_61w2s")
 
+[node name="Rectangle1" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(640, 360)
+texture = ExtResource("3_xx0b3")
+
 [node name="GameOverLabel" type="Label" parent="."]
 self_modulate = Color(1.2, 1.2, 1.1, 1)
 layout_mode = 1
@@ -39,8 +47,10 @@ offset_right = 153.0
 offset_bottom = -110.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_5i0af")
 theme_override_font_sizes/font_size = 46
 text = "Game Over :("
+horizontal_alignment = 1
 
 [node name="HighScoreLabel" type="Label" parent="."]
 layout_mode = 1
@@ -55,6 +65,8 @@ offset_right = 131.0
 offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("5_nh6my")
+theme_override_fonts/font = ExtResource("4_5i0af")
 theme_override_font_sizes/font_size = 31
 text = "New High Score! "
 horizontal_alignment = 1
@@ -65,6 +77,7 @@ offset_left = 576.0
 offset_top = 456.0
 offset_right = 715.0
 offset_bottom = 498.0
+theme = ExtResource("5_nh6my")
 theme_override_font_sizes/font_size = 24
 text = "Main Menu
 "
@@ -82,6 +95,7 @@ offset_right = 67.0
 offset_bottom = 202.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("5_nh6my")
 theme_override_font_sizes/font_size = 24
 text = "Try Again?"
 

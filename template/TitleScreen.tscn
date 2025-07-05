@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://8u73soiwb6yq"]
+[gd_scene load_steps=8 format=3 uid="uid://8u73soiwb6yq"]
 
 [ext_resource type="Script" uid="uid://d0afuwmb6rmq8" path="res://template/title_screen.gd" id="1_dvbkw"]
 [ext_resource type="Theme" uid="uid://d2psgdku40rys" path="res://template/defaultButton.tres" id="2_0jbof"]
 [ext_resource type="PackedScene" uid="uid://bdwik3mt2r13j" path="res://scenes/defaultEnvironment.tscn" id="2_s7u37"]
 [ext_resource type="FontFile" uid="uid://d1ptbhfwxht47" path="res://assets/fonts/LondrinaSolid-Regular.ttf" id="2_sxgte"]
 [ext_resource type="Texture2D" uid="uid://cdsp66eic5fvl" path="res://assets/retro-1548260_1280.png" id="5_b0qbu"]
+[ext_resource type="Texture2D" uid="uid://ctxumbgvucdb5" path="res://assets/Rectangle 1.png" id="5_ll8nd"]
 
 [sub_resource type="Theme" id="Theme_mnkat"]
 Label/font_sizes/font_size = 64
@@ -72,6 +73,11 @@ self_modulate = Color(1, 1, 1, 0.24)
 position = Vector2(640, 168)
 rotation = 3.14159
 texture = ExtResource("5_b0qbu")
+
+[node name="Rectangle1" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(640, 352)
+texture = ExtResource("5_ll8nd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
