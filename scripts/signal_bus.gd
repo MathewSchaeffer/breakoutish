@@ -7,3 +7,5 @@ signal settings_menu_close
 signal shake
 signal spawn_new_ball
 signal grant_score
+signal lose_life
+signal game_over

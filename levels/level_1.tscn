@@ -6,16 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cl12u7567np1n" path="res://scenes/paddle.tscn" id="2_jirdo"]
 [ext_resource type="PackedScene" uid="uid://b4ikesqsogyh7" path="res://scenes/ball.tscn" id="2_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://dqt85mb1vinx3" path="res://scenes/boundary.tscn" id="3_bt44k"]
+[ext_resource type="PackedScene" uid="uid://bdwik3mt2r13j" path="res://scenes/defaultEnvironment.tscn" id="3_l53as"]
 [ext_resource type="PackedScene" uid="uid://cqce24swt2b0d" path="res://scenes/brick_static.tscn" id="5_n46q3"]
-
-[sub_resource type="Environment" id="Environment_bt44k"]
-background_mode = 3
-glow_enabled = true
-glow_intensity = 0.75
-glow_strength = 1.17
-glow_bloom = 0.12
-glow_blend_mode = 1
-glow_hdr_threshold = 0.91
 
 [sub_resource type="Animation" id="Animation_l53as"]
 length = 0.001
@@ -59,8 +51,7 @@ script = ExtResource("1_1fa48")
 
 [node name="Camera2D" parent="." instance=ExtResource("2_gwceb")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_bt44k")
+[node name="DefaultEnvironment" parent="." instance=ExtResource("3_l53as")]
 
 [node name="GameField" type="Node" parent="."]
 
@@ -94,7 +85,6 @@ scale = Vector2(1, 1.17813)
 texture = ExtResource("2_btoec")
 
 [node name="BackgroundImage2" type="Sprite2D" parent="GameField"]
-visible = false
 self_modulate = Color(1.2, 1.2, 1.2, 0.0980392)
 position = Vector2(639, 158)
 rotation = 3.14159
@@ -391,23 +381,57 @@ position = Vector2(1088, 264)
 position = Vector2(1216, 264)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(1.1, 1.1)
+transform = Transform2D(1.1, 0, 0, 1.1, 0, 0)
+
+[node name="Lives" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -254.545
+offset_right = -123.545
+offset_bottom = 80.0
+grow_horizontal = 0
+text = "Lives"
+vertical_alignment = 1
+
+[node name="LivesIconContainer" type="Node" parent="CanvasLayer/Lives"]
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/Lives/LivesIconContainer"]
+position = Vector2(1025.55, 4.54545)
+polygon = PackedVector2Array(50.9999, 29.0909, 65.5455, 29.0909, 65.5455, 43.6364, 50.9999, 43.6364)
+
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer/Lives/LivesIconContainer"]
+position = Vector2(1054.64, 4.54545)
+polygon = PackedVector2Array(50.9999, 29.0909, 65.5455, 29.0909, 65.5455, 43.6364, 50.9999, 43.6364)
+
+[node name="Polygon2D3" type="Polygon2D" parent="CanvasLayer/Lives/LivesIconContainer"]
+position = Vector2(1083.73, 4.54545)
+polygon = PackedVector2Array(50.9999, 29.0909, 65.5455, 29.0909, 65.5455, 43.6364, 50.9999, 43.6364)
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -102.0
-offset_right = 102.0
-offset_bottom = 40.0
+anchor_left = 0.455
+anchor_top = 0.061
+anchor_right = 0.455
+anchor_bottom = 0.061
+offset_left = -582.4
+offset_top = -43.92
+offset_right = 474.6
+offset_bottom = -3.92
 grow_horizontal = 2
 scale = Vector2(1.1, 1.1)
 size_flags_horizontal = 4
 
 [node name="Score" type="Label" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_right = 192.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -528.472
+offset_right = 528.472
 offset_bottom = 80.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 22
 text = "0"
 horizontal_alignment = 1

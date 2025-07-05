@@ -13,6 +13,7 @@ var isPlaying: bool = true
 var save_path: String = "user://score.save"
 var highscore: int
 var firstBall: bool = true
+var lives: int = 2
 
 
 func _ready() -> void:
@@ -55,3 +56,4 @@ func load_score() -> void:
 	else:
 		print("file not found")
 		highscore = 0
+		
