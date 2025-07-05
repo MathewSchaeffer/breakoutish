@@ -62,6 +62,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.0361058, 0.000555745, 0.0763369, 1)
 metadata/_edit_lock_ = true
 
@@ -71,6 +72,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.0361058, 0.000555745, 0.0763369, 1)
 metadata/_edit_lock_ = true
 
@@ -458,4 +460,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_3sk1a")
 }
 
-[node name="MobileControls" parent="." instance=ExtResource("9_3sk1a")]
+[node name="MobileControls" parent="CanvasLayer" instance=ExtResource("9_3sk1a")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-53.6364, 0)

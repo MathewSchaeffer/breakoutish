@@ -32,12 +32,11 @@ func init_ball_movement() -> void:
 func ball_collision_handler(delta: float) -> void:
 	var collision_info: KinematicCollision2D = move_and_collide(velocity * delta)
 	if collision_info: # We only want to bounce if the ball actually collided.
-		velocity *= 1.005
-		print(velocity)
 		SignalBus.shake.emit()
 		velocity = velocity.bounce(collision_info.get_normal())
 		var collider: Brick = collision_info.get_collider() as Brick
 		if collider is Brick:
+			velocity *= 1.005
 			collider.hit(1)
 			if !collider.hp == 0:
 				SignalBus.grant_score.emit(10)

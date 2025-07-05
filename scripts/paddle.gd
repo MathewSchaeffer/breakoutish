@@ -13,9 +13,11 @@ func _ready() -> void:
 	
 func mobile_movement_left() -> void:
 	mobile_direction = -1
+	print("mobile direction left")
 	
 func mobile_movement_right() -> void:
 	mobile_direction = 1
+	print("mobile direction right")
 	
 
 	

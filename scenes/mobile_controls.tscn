@@ -1,21 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://nlb477oosjgx"]
+[gd_scene load_steps=3 format=3 uid="uid://nlb477oosjgx"]
 
 [ext_resource type="Script" uid="uid://30yiyhd1uvww" path="res://scripts/mobile_controls.gd" id="1_k8ypl"]
+[ext_resource type="Texture2D" uid="uid://5pdh1scgm1eh" path="res://icon.svg" id="2_l7u83"]
 
 [node name="MobileControls" type="Node2D"]
 script = ExtResource("1_k8ypl")
 
-[node name="ButtonLeft" type="Button" parent="."]
-offset_right = 384.0
-offset_bottom = 720.0
-text = "<"
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+scale = Vector2(3.5, 5.6875)
+texture_normal = ExtResource("2_l7u83")
+action = "move_left"
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="ButtonLeft"]
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+position = Vector2(832, 0)
+scale = Vector2(3.5625, 5.6875)
+texture_normal = ExtResource("2_l7u83")
+action = "move_right"
 
-[node name="ButtonRight" type="Button" parent="."]
-offset_left = 896.0
-offset_right = 1280.0
-offset_bottom = 720.0
-text = ">"
-
-[connection signal="pressed" from="ButtonLeft/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="TouchScreenButton2" to="." method="_on_touch_screen_button_pressed"]
