@@ -12,3 +12,4 @@ signal game_over
 signal new_high_score_reached
 signal mobile_touch_left
 signal mobile_touch_right
+signal fps_toggle
